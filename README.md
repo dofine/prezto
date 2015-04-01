@@ -17,7 +17,7 @@ version is 4.3.17.
 
   2. Clone the repository:
 
-        git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+        git clone --recursive https://github.com/dofine/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
 
   3. Create a new Zsh configuration by copying the Zsh configuration files
      provided:
@@ -45,6 +45,16 @@ Updating
 Pull the latest changes and update submodules.
 
     git pull && git submodule update --init --recursive
+
+### Sync with upstream
+As this repo is forked from upstream repo, it needs to be synced with upstream.
+See help page from Github [Syncing a fork - User Documentation](https://help.github.com/articles/syncing-a-fork/).
+
+1. Config a remote that points to the original upstream repo.
+`git remote add upstream https://github.com/ORIGINAL_USER/REPO_NAME.git`
+2. `git remote -v` should return four remote branches.
+3. `git fetch upstream` to fetch commits from upstream repo.
+4. To merge `upstream/master` into local `master` branch, run `git merge upstream/master`. Fix conficts where possible, or else git will perform `fast-forward.`
 
 Usage
 -----
