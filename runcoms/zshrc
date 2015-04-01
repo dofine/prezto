@@ -11,3 +11,13 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
+
+# pip only run if in an activated virtualenv
+export PIP_REQUIRE_VIRTUALENV=true
+export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
+
+# global pip
+gpip() {
+  PIP_REQUIRE_VIRTUALENV="" pip "$@"
+}
+
