@@ -46,6 +46,7 @@ path=(
   /Users/dofine/bin
   /usr/local/{bin,sbin}
   $path
+  /usr/local/opt/go/libexec/bin
 )
 
 #
@@ -74,4 +75,3 @@ fi
 
 TMPPREFIX="${TMPDIR%/}/zsh"
 
-$(boot2docker shellinit 2>/dev/null)
