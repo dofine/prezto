@@ -8,12 +8,20 @@
 
 # Load manually installed pyenv into the shell session.
 if [[ -s "$HOME/.pyenv/bin/pyenv" ]]; then
-  path=("$HOME/.pyenv/bin" $path)
-  eval "$(pyenv init -)"
+  # path=("$HOME/.pyenv/bin" $path)
+  # eval "$(pyenv init -)"
+  # export PYENV_ROOT=/usr/local/opt/pyenv
+  # source $PYENV_ROOT/completions/pyenv.zsh
+
 
 # Load package manager installed pyenv into the shell session.
 elif (( $+commands[pyenv] )); then
   eval "$(pyenv init -)"
+  # the line below must be put in ~/.zshenv
+  # eval "$(pyenv virtualenv-init -)"
+  export PYENV_ROOT=/usr/local/opt/pyenv
+  source $PYENV_ROOT/completions/pyenv.zsh
+
 
 # Prepend PEP 370 per user site packages directory, which defaults to
 # ~/Library/Python on Mac OS X and ~/.local elsewhere, to PATH. The
@@ -29,21 +37,38 @@ else
   fi
 fi
 
+# Source pyenv-virtualenv 
+
 # Return if requirements are not found.
 if (( ! $+commands[python] && ! $+commands[pyenv] )); then
   return 1
 fi
 
+VIRTUAL_ENV_DISABLE_PROMPT=1
+
+
 # Load virtualenvwrapper into the shell session.
 if (( $+commands[virtualenvwrapper.sh] )); then
   # Set the directory where virtual environments are stored.
   export WORKON_HOME="$HOME/.virtualenvs"
+  export PROJECT_HOME=$HOME/Devel
+  source /usr/local/bin/virtualenvwrapper.sh
+
 
   # Disable the virtualenv prompt.
   VIRTUAL_ENV_DISABLE_PROMPT=1
 
   source "$commands[virtualenvwrapper.sh]"
 fi
+
+# export PIP_REQUIRE_VIRTUALENV=true
+# export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
+
+# global pip
+# gpip() {
+#   PIP_REQUIRE_VIRTUALENV="" pip "$@"
+# }
+
 
 #
 # Aliases

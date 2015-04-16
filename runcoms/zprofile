@@ -17,7 +17,7 @@ fi
 # Editors
 #
 
-export EDITOR='vim'
+export EDITOR='subl'
 export VISUAL='vim '
 export PAGER='less'
 
@@ -43,7 +43,7 @@ typeset -gU cdpath fpath mailpath path
 
 # Set the list of directories that Zsh searches for programs.
 path=(
-  /Users/dofine/bin
+  $HOME/bin
   /usr/local/{bin,sbin}
   $path
   /usr/local/opt/go/libexec/bin
