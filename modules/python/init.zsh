@@ -48,18 +48,18 @@ VIRTUAL_ENV_DISABLE_PROMPT=1
 
 
 # Load virtualenvwrapper into the shell session.
-if (( $+commands[virtualenvwrapper.sh] )); then
-  # Set the directory where virtual environments are stored.
-  export WORKON_HOME="$HOME/.virtualenvs"
-  export PROJECT_HOME=$HOME/Devel
-  source /usr/local/bin/virtualenvwrapper.sh
+# if (( $+commands[virtualenvwrapper.sh] )); then
+#   # set the directory where virtual environments are stored.
+#   export workon_home="$home/.virtualenvs"
+#   export project_home=$home/devel
+#   source /usr/local/bin/virtualenvwrapper.sh
 
 
-  # Disable the virtualenv prompt.
-  VIRTUAL_ENV_DISABLE_PROMPT=1
+#   # disable the virtualenv prompt.
+#   virtual_env_disable_prompt=1
 
-  source "$commands[virtualenvwrapper.sh]"
-fi
+#   source "$commands[virtualenvwrapper.sh]"
+# fi
 
 # export PIP_REQUIRE_VIRTUALENV=true
 # export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
